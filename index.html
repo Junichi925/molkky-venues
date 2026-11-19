@@ -20,7 +20,7 @@
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Hiragino Sans","Noto Sans JP","Yu Gothic UI",sans-serif;font-size:14px;line-height:1.55}
-.wrap{max-width:1720px;margin:0 auto;padding:24px 16px 64px}
+.wrap{max-width:1640px;margin:0 auto;padding:24px 16px 64px}
 h1{font-size:24px;margin:0 0 4px}
 h2{font-size:18px;margin:36px 0 10px;padding-left:10px;border-left:4px solid var(--accent)}
 .sub{color:var(--muted);margin:0 0 18px}
@@ -93,12 +93,11 @@ footer{color:var(--muted);font-size:12.5px;margin-top:28px}
   <div class="chips" id="chips"></div>
   <p class="hint">表は横にスクロールできます（No と会場名は左に固定）</p>
   <div class="tablewrap"><table id="summary">
-  <colgroup><col style="width:48px"><col style="width:52px"><col style="width:220px"><col style="width:76px"><col style="width:150px"><col style="width:170px"><col style="width:210px"><col style="width:120px"><col style="width:120px"><col style="width:130px"><col style="width:220px"><col style="width:300px"></colgroup>
+  <colgroup><col style="width:46px"><col style="width:48px"><col style="width:205px"><col style="width:130px"><col style="width:150px"><col style="width:190px"><col style="width:105px"><col style="width:105px"><col style="width:115px"><col style="width:200px"><col style="width:250px"></colgroup>
   <thead><tr>
     <th class="no sort" data-k="no">No</th>
     <th class="sort" data-k="rank">評価</th>
-    <th>会場</th>
-    <th class="sort" data-k="type">区分</th>
+    <th class="sort" data-k="type">会場（区・区分）</th>
     <th>最寄り</th>
     <th>使う区画の広さ</th>
     <th>夜の料金の目安（単位）</th>
@@ -449,8 +448,7 @@ function render(){
     return `<tr>
       <td class="no">${v.no}</td>
       <td class="mark ${k[1]}">${k[0]}</td>
-      <td class="name">${v.name}<small>${v.area}</small></td>
-      <td class="type">${v.type}</td>
+      <td class="name">${v.name}<small>${v.area}・${v.type}</small></td>
       <td>${v.station}</td>
       <td>${v.size}</td>
       <td><span class="price">${v.price}</span><span class="unit">${v.unit}</span></td>
