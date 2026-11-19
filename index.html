@@ -20,7 +20,7 @@
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Hiragino Sans","Noto Sans JP","Yu Gothic UI",sans-serif;font-size:14px;line-height:1.55}
-.wrap{max-width:1400px;margin:0 auto;padding:24px 16px 64px}
+.wrap{max-width:1720px;margin:0 auto;padding:24px 16px 64px}
 h1{font-size:24px;margin:0 0 4px}
 h2{font-size:18px;margin:36px 0 10px;padding-left:10px;border-left:4px solid var(--accent)}
 .sub{color:var(--muted);margin:0 0 18px}
@@ -31,15 +31,22 @@ h2{font-size:18px;margin:36px 0 10px;padding-left:10px;border-left:4px solid var
 .chip{border:1px solid var(--line);background:var(--card);color:var(--text);border-radius:999px;padding:5px 12px;cursor:pointer;font-size:13px}
 .chip.on{background:var(--accent);border-color:var(--accent);color:#fff}
 .tablewrap{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:10px}
-table{border-collapse:collapse;width:100%;min-width:980px}
-th,td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
-th{background:var(--head);font-size:12.5px;color:var(--muted);white-space:nowrap;position:sticky;top:0;z-index:1}
+table{border-collapse:separate;border-spacing:0;table-layout:fixed;width:max-content;min-width:100%}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left;overflow-wrap:anywhere}
+th{background:var(--head);font-size:12.5px;color:var(--muted);line-height:1.35;vertical-align:bottom}
+td{background:var(--card)}
+th:nth-child(1),td:nth-child(1){position:sticky;left:0;z-index:2}
+th:nth-child(1){z-index:3}
+#detail th:nth-child(2),#detail td:nth-child(2),#summary th:nth-child(3),#summary td:nth-child(3){position:sticky;z-index:2;box-shadow:inset -1px 0 0 var(--line)}
+#detail th:nth-child(2),#detail td:nth-child(2){left:48px}
+#summary th:nth-child(3),#summary td:nth-child(3){left:48px}
+.hint{color:var(--muted);font-size:12.5px;margin:4px 0 6px}
 th.sort{cursor:pointer}
 th.sort:after{content:" ↕";opacity:.5}
 tr:last-child td{border-bottom:none}
-tbody tr:hover td{background:color-mix(in srgb,var(--accent) 6%,transparent)}
-td.no,th.no{text-align:center;width:44px;font-weight:700}
-td.name{min-width:190px;font-weight:600}
+tbody tr:hover td{background:color-mix(in srgb,var(--accent) 7%,var(--card))}
+td.no,th.no{text-align:center;font-weight:700}
+td.name{font-weight:600}
 td.name small{display:block;font-weight:400;color:var(--muted)}
 .b{display:inline-block;border-radius:6px;padding:1px 8px;font-size:12.5px;font-weight:600;white-space:nowrap}
 .b.best{background:var(--best-bg);color:var(--best)}
@@ -51,8 +58,8 @@ td.name small{display:block;font-weight:400;color:var(--muted)}
 .unit{display:block;font-weight:400;color:var(--muted);font-size:12px;white-space:normal}
 .mark{font-size:18px;font-weight:700;text-align:center}
 .mark.best{color:var(--best)} .mark.good{color:var(--good)} .mark.cond{color:var(--cond)}
-td.detail{min-width:220px}
-.eq{display:flex;flex-wrap:wrap;gap:3px;min-width:200px}
+td.detail{font-size:13px}
+.eq{display:flex;flex-wrap:wrap;gap:3px}
 .eq .b{font-size:11.5px;padding:0 6px}
 td.links a{display:block;color:var(--accent);text-decoration:none;white-space:nowrap}
 td.links a:hover{text-decoration:underline}
@@ -84,7 +91,10 @@ footer{color:var(--muted);font-size:12.5px;margin-top:28px}
 
   <h2>全体サマリ</h2>
   <div class="chips" id="chips"></div>
-  <div class="tablewrap"><table id="summary"><thead><tr>
+  <p class="hint">表は横にスクロールできます（No と会場名は左に固定）</p>
+  <div class="tablewrap"><table id="summary">
+  <colgroup><col style="width:48px"><col style="width:52px"><col style="width:220px"><col style="width:76px"><col style="width:150px"><col style="width:170px"><col style="width:210px"><col style="width:120px"><col style="width:120px"><col style="width:130px"><col style="width:220px"><col style="width:300px"></colgroup>
+  <thead><tr>
     <th class="no sort" data-k="no">No</th>
     <th class="sort" data-k="rank">評価</th>
     <th>会場</th>
@@ -100,7 +110,9 @@ footer{color:var(--muted);font-size:12.5px;margin-top:28px}
   </tr></thead><tbody></tbody></table></div>
 
   <h2>詳細な調査結果</h2>
-  <div class="tablewrap"><table id="detail"><thead><tr>
+  <div class="tablewrap"><table id="detail">
+  <colgroup><col style="width:48px"><col style="width:220px"><col style="width:230px"><col style="width:300px"><col style="width:180px"><col style="width:150px"><col style="width:280px"><col style="width:320px"><col style="width:320px"><col style="width:230px"><col style="width:140px"></colgroup>
+  <thead><tr>
     <th class="no">No</th>
     <th>会場</th>
     <th>広さ</th>
