@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>モルック会場候補一覧</title>
+<style>
+:root{
+  --bg:#f6f7f9; --card:#fff; --text:#1d2330; --muted:#5d6676; --line:#e2e6ec; --head:#eef1f5;
+  --accent:#2f6fde; --best:#1f9d55; --good:#2f6fde; --cond:#c58a00; --ng:#c0392b;
+  --best-bg:#e3f6ea; --good-bg:#e6efff; --cond-bg:#fff4d6; --ng-bg:#fde7e4; --na-bg:#eef0f3;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#14171c; --card:#1c2028; --text:#e7eaf0; --muted:#9aa3b2; --line:#2e3440; --head:#232834;
+    --accent:#6c9cff; --best:#4cd08a; --good:#7aa7ff; --cond:#f0c04a; --ng:#ff7b6b;
+    --best-bg:#173826; --good-bg:#1b2a4a; --cond-bg:#3a3014; --ng-bg:#3d1d1a; --na-bg:#262b35;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Hiragino Sans","Noto Sans JP","Yu Gothic UI",sans-serif;font-size:14px;line-height:1.55}
+.wrap{max-width:1400px;margin:0 auto;padding:24px 16px 64px}
+h1{font-size:24px;margin:0 0 4px}
+h2{font-size:18px;margin:36px 0 10px;padding-left:10px;border-left:4px solid var(--accent)}
+.sub{color:var(--muted);margin:0 0 18px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:12px 0}
+.box ul{margin:6px 0 0;padding-left:20px}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;color:var(--muted);font-size:13px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.chip{border:1px solid var(--line);background:var(--card);color:var(--text);border-radius:999px;padding:5px 12px;cursor:pointer;font-size:13px}
+.chip.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.tablewrap{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;min-width:980px}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
+th{background:var(--head);font-size:12.5px;color:var(--muted);white-space:nowrap;position:sticky;top:0;z-index:1}
+th.sort{cursor:pointer}
+th.sort:after{content:" ↕";opacity:.5}
+tr:last-child td{border-bottom:none}
+tbody tr:hover td{background:color-mix(in srgb,var(--accent) 6%,transparent)}
+td.no,th.no{text-align:center;width:44px;font-weight:700}
+td.name{min-width:190px;font-weight:600}
+td.name small{display:block;font-weight:400;color:var(--muted)}
+.b{display:inline-block;border-radius:6px;padding:1px 8px;font-size:12.5px;font-weight:600;white-space:nowrap}
+.b.best{background:var(--best-bg);color:var(--best)}
+.b.good{background:var(--good-bg);color:var(--good)}
+.b.cond{background:var(--cond-bg);color:var(--cond)}
+.b.ng{background:var(--ng-bg);color:var(--ng)}
+.b.na{background:var(--na-bg);color:var(--muted)}
+.price{white-space:nowrap;font-weight:600}
+.unit{display:block;font-weight:400;color:var(--muted);font-size:12px;white-space:normal}
+.mark{font-size:18px;font-weight:700;text-align:center}
+.mark.best{color:var(--best)} .mark.good{color:var(--good)} .mark.cond{color:var(--cond)}
+td.detail{min-width:220px}
+td.links a{display:block;color:var(--accent);text-decoration:none;white-space:nowrap}
+td.links a:hover{text-decoration:underline}
+.type{font-size:12px;color:var(--muted);white-space:nowrap}
+footer{color:var(--muted);font-size:12.5px;margin-top:28px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>モルック会場候補一覧</h1>
+  <p class="sub">想定：平日（金曜）夜・30人前後（最大40人）・3〜4チームが交代でプレー。調査日：2026-11-19（公開情報をもとに作成。空き状況・最新料金は各施設へ要確認）</p>
+
+  <div class="box">
+    <strong>共通の前提</strong>
+    <ul>
+      <li><b>広さ：</b>日本モルック協会の推奨は、屋内の試合用コート1面あたり 2m × 7.5m。4コート＋待機場所でも <b>200〜300㎡あれば足りる</b>ため、大きい体育館は半面やサブアリーナで十分。</li>
+      <li><b>床の保護：</b>同協会は、フローリング等の床に<b>保護なしで木製モルックを使わない</b>よう案内している。人工芝かジョイントマットを敷く前提（協会が人工芝 1m×10m を 1本 2,200円＋送料で貸出。1コート2本）。人工芝・ゴム床の会場は保護の負担が小さい。</li>
+      <li><b>公共の体育館：</b>団体登録が必要。飲酒は不可が一般的（明記している施設もある）。懇親会は別会場が前提。</li>
+    </ul>
+  </div>
+
+  <div class="legend">
+    <span><span class="b best">◎</span> 本命</span>
+    <span><span class="b good">○</span> 十分あり</span>
+    <span><span class="b cond">△</span> 条件付き</span>
+    <span><span class="b na">要確認</span> 公開情報では不明</span>
+  </div>
+
+  <h2>全体サマリ</h2>
+  <div class="chips" id="chips"></div>
+  <div class="tablewrap"><table id="summary"><thead><tr>
+    <th class="no sort" data-k="no">No</th>
+    <th class="sort" data-k="rank">評価</th>
+    <th>会場</th>
+    <th class="sort" data-k="type">区分</th>
+    <th>最寄り</th>
+    <th>使う区画の広さ</th>
+    <th>夜の料金の目安（単位）</th>
+    <th>飲食</th>
+    <th>飲酒</th>
+    <th>木製モルック</th>
+    <th>ひとこと</th>
+  </tr></thead><tbody></tbody></table></div>
+
+  <h2>詳細な調査結果</h2>
+  <div class="tablewrap"><table id="detail"><thead><tr>
+    <th class="no">No</th>
+    <th>会場</th>
+    <th>広さ</th>
+    <th>料金（単位つき）</th>
+    <th>営業・利用時間</th>
+    <th>最寄り</th>
+    <th>予約・登録</th>
+    <th>備考</th>
+    <th>評価・意見</th>
+    <th>リンク</th>
+  </tr></thead><tbody></tbody></table></div>
+
+  <footer>料金は各施設・予約サイトの公開情報（調査時点）による。税込・税抜の表記は施設ごとに異なる。「〜枠」は施設が決めた時間区分ごとの料金。</footer>
+</div>
+
+<script>
+const V = [
+ {no:1,name:"学校跡地の飯田橋でっかいレンタルスペース",area:"新宿区",type:"民間",rank:"best",
+  station:"飯田橋 徒歩2分",size:"体育館 324㎡",
+  price:"¥34,549〜",unit:"1時間あたり",
+  food:["可","best","持込・ケータリング可"],drink:["可","best"],molkky:["可","best","運営がモルック利用を案内（マット敷設が条件）"],
+  one:"条件を全部満たす唯一の候補。懇親会も館内で可",
+  sizeD:"体育館（講堂）324㎡、天井3m以上、フローリング。収容500人",
+  priceD:"体育館プラン ¥34,549〜／1時間（予約サイト表示 ¥34,549〜¥43,890／1時間）",
+  hours:"22時以降も利用可",
+  reserve:"予約サイト（スペースマーケット・インスタベース）または直接問合せ（電話 03-3479-1208／LINE／問合せフォーム）",
+  note:"運営が「体育館でのモルック大会」の活用記事を公開。木製モルックは投擲エリアとピン周りにマットを敷けば可。持込飲食・飲酒・ケータリング可。1階食堂や教室で懇親会・表彰式が可能。キャンセル料が高い（予約成立時30%、31日前から50%、14日前から100%）",
+  opinion:"本命。モルック・飲食・飲酒・懇親会が1か所で完結する",
+  links:[["公式","https://mrdekkai.com/"],["モルック活用記事","https://note.com/dekkai/n/nea03d1b99bfc"],["スペースマーケット","https://www.spacemarket.com/spaces/mzqdszwgi4zc4hoe/"]]},
+ {no:2,name:"SPORTS LABO SHIBAURA",area:"港区",type:"民間",rank:"cond",
+  station:"芝浦ふ頭 徒歩3分",size:"380㎡（24×14m）",
+  price:"¥25,756〜",unit:"1時間あたり（2時間から）",
+  food:["飲み物のみ","cond","待機スペースのみ"],drink:["要確認","na"],molkky:["要相談","cond"],
+  one:"定員30人（立ち）で最大40人に足りない",
+  sizeD:"屋内体育館 380㎡（24m×14m）、冷暖房。定員30人（立ち）・20人（着席）",
+  priceD:"¥25,756〜／1時間（スペースマーケット表示、2時間から）",
+  hours:"平日15:00〜23:00、土日祝8:00〜23:00、月曜定休",
+  reserve:"LaBOLA予約。ビジターは利用日の30日前から、1日最大4時間。イベント・営利利用は別途確認",
+  note:"ドリンクはコート内の待機スペースのみ。インドアシューズ必須。インスタベース上では「情報が2026-03以降未更新・休止の可能性」と表示されているが、公式サイトに休止の告知はない",
+  opinion:"人数と飲食が弱い",
+  links:[["公式","https://www.spolaboshibaura.com/"],["スペースマーケット","https://www.spacemarket.com/spaces/spolabo_shibaura/"]]},
+ {no:3,name:"千代田区立スポーツセンター",area:"千代田区",type:"公共",rank:"good",
+  station:"神田 徒歩5分",size:"主競技場の半面 約594㎡",
+  price:"21,300円",unit:"夜間枠（18:00〜21:00）あたり・半面",
+  food:["要確認","na"],drink:["不可が一般的","ng"],molkky:["マット必須","cond"],
+  one:"半面で十分な広さ。料金も手頃",
+  sizeD:"主競技場（3F）1,188㎡。半面利用可",
+  priceD:"夜間枠（18:00〜21:00）：全面 42,600円／半面 21,300円。午前枠 全面22,000円、午後枠 全面29,000円",
+  hours:"9:00〜21:00（受付は20:30まで、21:30完全退館）。第3月曜・年末年始休館",
+  reserve:"団体登録が必要（窓口で申請書と名簿）。区外の団体も「一般団体」で登録可。一般団体は利用日の2か月前の2日10時から予約（すぽすたちよだ）",
+  note:"主競技場の照明改修による休止は2027/3/1〜3/31。利用日の10営業日前までの取消で半額返金",
+  opinion:"公共の中では有力。懇親会は別会場",
+  links:[["利用案内","https://shisetsu.mizuno.jp/m-7501/guide"],["施設トップ","https://shisetsu.mizuno.jp/m-7501"]]},
+ {no:4,name:"港区スポーツセンター",area:"港区",type:"公共",rank:"good",
+  station:"田町 徒歩5分",size:"サブアリーナ 1,175㎡",
+  price:"10,200円",unit:"2時間枠あたり（サブアリーナ）",
+  food:["要確認","na"],drink:["不可が一般的","ng"],molkky:["サブで要相談","cond","アリーナはボール・ラケット種目を遠慮"],
+  one:"最安。ただし在勤団体の登録が必要",
+  sizeD:"アリーナ 2,000㎡／サブアリーナ 1,175㎡",
+  priceD:"サブアリーナ 10,200円／2時間。アリーナ 全面17,400円・半面8,700円／2時間",
+  hours:"夜間枠あり（2時間単位）",
+  reserve:"港区在住・在勤・在学の団体のみ。在勤団体は10人以上・全員16歳以上で、全員の氏名と事業所所在地がわかる証明（社員証等、名刺不可）が必要",
+  note:"区は「アリーナは壁材やガラス窓の関係でボールやラケットを使う種目は遠慮」と回答しており、モルックはサブアリーナで相談するのが現実的",
+  opinion:"料金は最安。登録書類の準備に時間がかかる",
+  links:[["料金","https://www.city.minato.tokyo.jp/sports/ryoukin.html"],["利用登録","https://www.city.minato.tokyo.jp/sports/riyoutouroku.html"]]},
+ {no:5,name:"品川区立総合体育館",area:"品川区",type:"公共",rank:"cond",
+  station:"大崎・五反田 徒歩8分",size:"主競技場の半面 約1,020㎡",
+  price:"12,500円〜",unit:"夜間枠（18:00〜21:30）あたり・半面（区内団体の料金）",
+  food:["要確認","na"],drink:["不可が一般的","ng"],molkky:["マット必須","cond"],
+  one:"区外団体は別料金（非公開）",
+  sizeD:"主競技場（アリーナ）2,040㎡、観覧席318席",
+  priceD:"区内一般団体・平日：夜間枠（18:00〜21:30）全面25,000円／半面12,500円。区外団体は別料金（公開なし）",
+  hours:"夜間枠は18:00〜21:30",
+  reserve:"団体登録が必要。区外団体は2か月前の抽選後に空き予約。営利目的は全面利用のみ・別手続き",
+  note:"区外扱いの料金・手続きは電話（03-3449-4400）で確認が必要",
+  opinion:"区外扱いで手続きが重い",
+  links:[["団体利用","https://www.ssa.or.jp/sougou/guide/dantai/"]]},
+ {no:6,name:"八重洲スクールシェア（ヤエスク）",area:"中央区",type:"民間運営",rank:"good",
+  station:"東京駅 地下直結",size:"体育館 約524㎡",
+  price:"¥15,400",unit:"1時間あたり・全面（半面 ¥9,900）",
+  food:["飲み物のみ","cond","食べ物は原則禁止"],drink:["要確認","na"],molkky:["要相談","cond","床・壁を傷つける用途は禁止"],
+  one:"立地は最強。21時終了・館内で飲食不可",
+  sizeD:"体育館 約524㎡（ステージ除く）、天井7〜7.9m、バスケコート24×14m。屋上運動場 1,520㎡（開閉式屋根）もある",
+  priceD:"一般・平日：全面 ¥15,400／1時間、半面 ¥9,900／1時間（1日4時間以上は全面のみ ¥22,000／1時間）。屋上運動場 ¥22,000／1時間",
+  hours:"平日16:00〜21:00（土日祝9:00〜21:00）",
+  reserve:"LaBOLA予約。一般は50日前から、Webは1日3時間まで（4時間以上は電話）",
+  note:"東京ミッドタウン八重洲内の区立小学校施設を授業時間外に開放。飲み物は可・食べ物は原則禁止。床や壁を傷つける恐れのある用途は禁止のため、マット敷設を前提に事前相談が必要",
+  opinion:"アクセス重視なら有力。懇親会は別会場",
+  links:[["公式","https://www.futsal-tokyo.co.jp/yaesuku/"],["予約","https://yoyaku.labola.jp/r/shop/3342/"]]},
+ {no:7,name:"東京体育館",area:"渋谷区",type:"公共",rank:"cond",
+  station:"千駄ヶ谷 徒歩1分",size:"サブアリーナ 1,330㎡",
+  price:"26,500円 / 53,000円",unit:"夜間枠（17:00〜21:00）あたり・全面（アマチュアスポーツ／その他スポーツ等）",
+  food:["要確認","na"],drink:["要確認","na"],molkky:["マット必須","cond"],
+  one:"広すぎる。半面は練習用途のみ",
+  sizeD:"サブアリーナ 競技フロア1,330㎡＋待機スペース280㎡、天井12.5m",
+  priceD:"平日・夜間枠（17:00〜21:00）全面：アマチュアスポーツ 26,500円／その他スポーツ等 53,000円。半面はその半額",
+  hours:"9:00〜21:00（午前・午後・夜間の3枠）",
+  reserve:"6か月前の月の2日13時から受付（全面は初日調整会）。半面は2か月前から・練習用途に限る。団体登録の初回は窓口",
+  note:"どの料金区分になるかは施設判断。空きは東京都スポーツ施設予約システムで確認",
+  opinion:"広さに対して割高。空きも少ないはず",
+  links:[["サブアリーナ","https://www.tef.or.jp/tmg/subarena/"],["申込受付","https://www.tef.or.jp/tmg/general/"]]},
+ {no:8,name:"中央区立総合スポーツセンター",area:"中央区",type:"公共",rank:"good",
+  station:"浜町 徒歩2分",size:"第2競技場 665㎡",
+  price:"14,100円",unit:"夜間枠（18:30〜21:30）あたり・第2競技場",
+  food:["要確認","na"],drink:["不可が一般的","ng"],molkky:["マット必須","cond"],
+  one:"広さがちょうどいい",
+  sizeD:"主競技場 1,320㎡（半面可）／第2競技場 665㎡",
+  priceD:"平日・夜間枠（18:30〜21:30）：第2競技場 14,100円、主競技場 28,100円（半面は約半額）",
+  hours:"8:00〜21:30（夜間枠18:30〜21:30）",
+  reserve:"利用日の3か月前の同日から受付（9:25抽選会）。直接来館して申込・支払い。2027年4月から団体の事前登録制",
+  note:"申込後の変更・キャンセル不可",
+  opinion:"公共の中では広さ・料金のバランスが良い",
+  links:[["団体利用","https://www.chuo-sports.jp/guide/"]]},
+ {no:9,name:"目黒区民センター体育館",area:"目黒区",type:"公共",rank:"good",
+  station:"目黒 徒歩10分",size:"体育室 735㎡",
+  price:"16,500円",unit:"夜間枠（3時間）あたり・区外料金",
+  food:["要確認","na"],drink:["不可が一般的","ng"],molkky:["マット必須","cond"],
+  one:"区外料金が公開されていてわかりやすい",
+  sizeD:"体育室 735㎡",
+  priceD:"夜間枠（3時間）：区外 16,500円／区民 8,200円（2025/4改定）",
+  hours:"夜間枠あり",
+  reserve:"事前の団体登録が必要",
+  note:"",
+  opinion:"広さ・料金とも手頃",
+  links:[["料金改定","https://www.city.meguro.tokyo.jp/sports/bunkasports/sports/ryokinhenko.html"],["施設","https://shisetsu.mizuno.jp/m-7502"]]},
+ {no:10,name:"新宿スポーツセンター",area:"新宿区",type:"公共",rank:"cond",
+  station:"高田馬場 徒歩10分",size:"大体育室 1,620㎡／小体育室 480㎡",
+  price:"34,700円",unit:"3時間枠あたり・大体育室全面（平日午前の例。夜間は要確認）",
+  food:["要確認","na"],drink:["不可が一般的","ng"],molkky:["マット必須","cond"],
+  one:"区外団体も登録できる",
+  sizeD:"大体育室 1,620㎡／小体育室 480㎡",
+  priceD:"大体育室全面 34,700円／3時間（平日9:00〜12:00の例）。夜間料金は要確認",
+  hours:"9:00〜22:00",
+  reserve:"区外団体も登録可（代表者の本人確認書類とメールアドレス）。インターネット抽選",
+  note:"",
+  opinion:"条件次第",
+  links:[["団体利用","https://shinjuku-sportscenter.jp/userguide1/"]]},
+ {no:11,name:"新宿コズミックスポーツセンター",area:"新宿区",type:"公共",rank:"cond",
+  station:"西早稲田 徒歩3分",size:"大体育室 1,218㎡（42×29m）",
+  price:"35,200円",unit:"3時間枠あたり・大体育室全面（平日午前の例）",
+  food:["要確認","na"],drink:["不可が一般的","ng"],molkky:["マット必須","cond"],
+  one:"小体育室は鏡があるので対象外",
+  sizeD:"大体育室 1,218㎡（42m×29m）。地下の小体育室は鏡面壁",
+  priceD:"大体育室全面 35,200円／3時間（平日9:00〜12:00の例）",
+  hours:"要確認",reserve:"団体登録が必要",note:"",opinion:"条件次第",
+  links:[["施設","https://www.regasu-shinjuku.or.jp/?p=667"]]},
+ {no:12,name:"文京総合体育館",area:"文京区",type:"公共",rank:"cond",
+  station:"本郷三丁目 徒歩5分",size:"競技場 約1,134㎡（2分割可）",
+  price:"要確認",unit:"",
+  food:["要確認","na"],drink:["不可が一般的","ng"],molkky:["マット必須","cond"],
+  one:"区外団体が使えるか不明",
+  sizeD:"競技場 約1,134㎡、二分割で貸出可",
+  priceD:"公式の料金ページで要確認",
+  hours:"窓口受付 8:30〜21:00",
+  reserve:"団体登録が必要（「文の京」施設予約ねっと）。区外団体の可否は記載なし",
+  note:"",opinion:"条件次第",
+  links:[["区の案内","https://www.city.bunkyo.lg.jp/bunka/sports/shisetsu/sougoutaiikukan.html"],["料金","https://www.shisetsu-tds.jp/tokyo-bunkyo-sogotaiikukan/fee/"]]},
+ {no:13,name:"渋谷区スポーツセンター",area:"渋谷区",type:"公共",rank:"cond",
+  station:"幡ヶ谷 徒歩6分",size:"大体育室 1,376㎡",
+  price:"7,000円",unit:"2時間枠あたり・大体育室半面（平日午前の例）",
+  food:["要確認","na"],drink:["不可が一般的","ng"],molkky:["マット必須","cond"],
+  one:"館内にレストラン・カフェあり",
+  sizeD:"大体育室 1,376㎡",
+  priceD:"大体育室半面 7,000円／2時間（平日9:00〜11:00の例）",
+  hours:"要確認",reserve:"団体登録が必要",note:"館内にレストラン、2階にカフェ",opinion:"条件次第",
+  links:[["団体利用","https://shibspo.com/dantai/"]]},
+ {no:14,name:"有明スポーツセンター",area:"江東区",type:"公共",rank:"cond",
+  station:"お台場海浜公園 徒歩10分",size:"大体育室 約1,440㎡（半面可）",
+  price:"42,450円",unit:"夜間枠（18:00〜21:30）あたり・全面（半面は半額）",
+  food:["要確認","na"],drink:["不可が一般的","ng"],molkky:["マット必須","cond"],
+  one:"半面なら約21,000円",
+  sizeD:"大体育室 約1,440㎡（バスケ2面分）",
+  priceD:"平日・夜間枠（18:00〜21:30）全面 42,450円／半面は半額",
+  hours:"9:00〜21:30",reserve:"団体登録が必要",note:"",opinion:"条件次第",
+  links:[["施設","https://www.koto-hsc.or.jp/centerlist/sports_center4/"]]},
+ {no:15,name:"ひがしんアリーナ（墨田区総合体育館）",area:"墨田区",type:"公共",rank:"cond",
+  station:"錦糸町 徒歩3分",size:"サブアリーナ 912㎡",
+  price:"要確認",unit:"",
+  food:["要確認","na"],drink:["不可（明記）","ng"],molkky:["マット必須","cond"],
+  one:"区外団体も登録できる",
+  sizeD:"メインアリーナ 2,166㎡／サブアリーナ 912㎡",
+  priceD:"公式の料金ページで要確認",
+  hours:"9:00〜22:30",
+  reserve:"区民・区外を問わず団体登録で利用可。原則前日までに予約",
+  note:"「酒気を帯びている方は利用できません」と明記",opinion:"条件次第",
+  links:[["団体利用","https://www.sumidacity-gym.com/guide/dantai/"]]},
+ {no:16,name:"台東リバーサイドスポーツセンター",area:"台東区",type:"公共",rank:"cond",
+  station:"浅草 徒歩12分",size:"第二競技場 702㎡",
+  price:"要確認",unit:"",
+  food:["要確認","na"],drink:["不可が一般的","ng"],molkky:["マット必須","cond"],
+  one:"広さは手頃",
+  sizeD:"第一競技場 1,512㎡／第二競技場 702㎡",
+  priceD:"要確認",hours:"要確認",reserve:"団体登録が必要",note:"",opinion:"条件次第",
+  links:[["施設","https://www.taitogeibun.net/riverside/"]]},
+ {no:17,name:"大田区総合体育館",area:"大田区",type:"公共",rank:"cond",
+  station:"梅屋敷 徒歩5分",size:"サブアリーナ 646㎡",
+  price:"要確認",unit:"",
+  food:["要確認","na"],drink:["不可が一般的","ng"],molkky:["マット必須","cond"],
+  one:"都心からは遠め",
+  sizeD:"メインアリーナ 1,824㎡／サブアリーナ 646㎡",
+  priceD:"要確認",hours:"要確認",reserve:"団体登録が必要",note:"",opinion:"遠い",
+  links:[["施設","https://www.ota.esforta.jp/"]]},
+ {no:18,name:"駒沢オリンピック公園 屋内球技場",area:"世田谷区",type:"公共",rank:"cond",
+  station:"駒沢大学 徒歩15分",size:"1,833㎡",
+  price:"37,800円",unit:"4時間枠あたり（平日9:00〜13:00・スタンド未使用の例）",
+  food:["要確認","na"],drink:["要確認","na"],molkky:["マット必須","cond"],
+  one:"遠くて広すぎる",
+  sizeD:"1,833㎡（木製フローリング）、観覧席1,558席",
+  priceD:"37,800円／4時間（平日9:00〜13:00、スタンド未使用の例）",
+  hours:"要確認",reserve:"東京都スポーツ施設予約システム",note:"",opinion:"遠い",
+  links:[["施設","https://www.tef.or.jp/kopgp/ballgame-indoor/index.html"]]},
+ {no:19,name:"BumB 東京スポーツ文化館",area:"江東区",type:"公共",rank:"good",
+  station:"新木場 徒歩13分",size:"サブアリーナ 490㎡／マルチスタジオ 220㎡",
+  price:"要確認",unit:"",
+  food:["館内レストラン","good","夕食17〜21時・団体メニューあり"],drink:["要確認","na"],molkky:["マット必須","cond"],
+  one:"企業の研修・運動会を想定した施設",
+  sizeD:"メインアリーナ 1,410㎡／サブアリーナ 490㎡（30×16m）／マルチスタジオA・C 各220㎡",
+  priceD:"貸切料金表で要確認",
+  hours:"レストラン 7:00〜21:00（夕食17:00〜21:00、LO20:30）",
+  reserve:"施設のみの予約は6か月前の月の1日から。初日の重複は抽選（都内在住・在学・在勤を優先）",
+  note:"アリーナ・サブアリーナの利用目的に社内研修・運動会・イベント運営が含まれる。宿泊棟あり",
+  opinion:"企業イベントに慣れた施設。飲酒できるかは要確認",
+  links:[["スポーツゾーン","https://www.ys-tokyobay.co.jp/sports/"],["レストラン","https://www.ys-tokyobay.co.jp/restaurant/"]]},
+ {no:20,name:"BUDDYスポーツアリーナ",area:"江東区",type:"民間",rank:"good",
+  station:"有明テニスの森 徒歩12分",size:"要確認",
+  price:"¥24,200〜",unit:"1時間あたり（平日10:00〜18:00・ビジターの例）",
+  food:["館内レストラン","good","BBQ施設あり"],drink:["要確認","na"],molkky:["要確認","na"],
+  one:"23時まで使えて、飲食施設が揃っている",
+  sizeD:"屋内多目的スポーツ施設（アリーナコートの広さは要確認）",
+  priceD:"アリーナコート ¥24,200／1時間（平日10:00〜18:00・ビジターの例）。夜間料金は要確認",
+  hours:"9:00〜23:00",
+  reserve:"電話 03-6426-0327 またはメール",
+  note:"レストラン・BBQ施設あり。有料駐車場27台",opinion:"問い合わせる価値あり",
+  links:[["公式","https://ariake-sportsarena.com/"]]},
+ {no:21,name:"IKUSA ARENA",area:"練馬区",type:"民間",rank:"cond",
+  station:"東武練馬 徒歩10分",size:"約700㎡（メインフロア）〜約1,000㎡",
+  price:"¥65,000",unit:"1時間あたり（平日・通常シーズン）",
+  food:["可","best","持込・ケータリング可"],drink:["可","best"],molkky:["ゴム床","good"],
+  one:"高くて遠い",
+  sizeD:"メインフロア約700㎡（施設全体で約1,000㎡）、ゴムマット床",
+  priceD:"¥65,000／1時間（平日通常シーズン 7:00〜23:00）",
+  hours:"7:00〜23:00",reserve:"公式から問合せ",
+  note:"運動会・懇親会向けの施設。音響・スクリーンあり",opinion:"予算に余裕があれば",
+  links:[["公式","https://arena.ikusa.jp/"]]},
+ {no:22,name:"スポーツゼロ",area:"杉並区",type:"民間",rank:"good",
+  station:"新高円寺 徒歩2分",size:"屋内人工芝 約171㎡",
+  price:"¥5,000",unit:"1時間あたり（金曜18:00〜22:00）",
+  food:["要確認","na"],drink:["要確認","na"],molkky:["人工芝","good"],
+  one:"安く、マットも不要。2〜3コートが限界",
+  sizeD:"多目的フィールド 約171㎡（屋内人工芝）",
+  priceD:"¥5,000／1時間（金曜18:00〜22:00、土日祝8:00〜22:00）",
+  hours:"〜22:00",reserve:"公式から予約",
+  note:"マイク3本・プロジェクター・120インチスクリーンを無料で貸出",opinion:"狭さを許容できれば",
+  links:[["公式","https://www.senon-sports-zero.jp/facility/index"]]},
+ {no:23,name:"ROX・3G スーパーマルチコート",area:"台東区",type:"民間",rank:"good",
+  station:"浅草（TX） 徒歩1分",size:"屋根付き人工芝 544㎡（32×17m）",
+  price:"¥19,800",unit:"1時間あたり（平日19:00〜22:00・ビジター）",
+  food:["テラスで可","good","コート内は禁止"],drink:["要確認","na"],molkky:["人工芝","good"],
+  one:"半屋外なので12月の夜は寒い",
+  sizeD:"32m×17mの人工芝コート（屋上・屋根付きの全天候型）",
+  priceD:"¥19,800／1時間（平日19:00〜22:00、ビジター）",
+  hours:"9:00〜22:00",reserve:"公式から予約（電話受付14:00〜22:00）",
+  note:"コート内での食事は禁止、テラススペースで飲食可。フタ付き飲料はコート内可",opinion:"防寒できれば",
+  links:[["公式","https://rox3g.net/facility/"]]},
+ {no:24,name:"国立代々木競技場フットサルコート",area:"渋谷区",type:"屋外",rank:"cond",
+  station:"原宿 徒歩5分",size:"屋外人工芝 38×19m（1面）",
+  price:"¥19,800",unit:"1時間あたり・1面（平日19:00〜23:00、最大2時間）",
+  food:["要確認","na"],drink:["要確認","na"],molkky:["掲載あり","good","LaBOLAのモルック対応施設"],
+  one:"屋外。12月の夜は寒い",
+  sizeD:"全4面（各38×19m）、人工芝、LEDナイター",
+  priceD:"平日19:00〜23:00：1面 ¥19,800／1時間（同一団体は最大2時間）",
+  hours:"9:00〜23:00",reserve:"LaBOLA予約",
+  note:"更衣室・シャワーあり、駐車場なし",opinion:"屋外でよければ",
+  links:[["予約","https://yoyaku.labola.jp/r/shop/3094/"]]},
+ {no:25,name:"フットサルプラザBumB",area:"江東区",type:"屋外",rank:"cond",
+  station:"新木場 徒歩10分",size:"屋外人工芝 36×18m（1面）",
+  price:"¥14,300",unit:"1時間あたり・1面（ナイト19:00〜22:00、ビジター）",
+  food:["要確認","na"],drink:["要確認","na"],molkky:["掲載あり","good","LaBOLAのモルック対応施設"],
+  one:"屋外。12月の夜は寒い",
+  sizeD:"3面（各36×18m）、ロングパイル人工芝",
+  priceD:"ナイト（19:00〜22:00）：メンバー ¥12,100／ビジター ¥14,300（各1時間）",
+  hours:"平日10:00〜22:00（12/10は休館）",
+  reserve:"LaBOLA予約。ビジターは30日前から",
+  note:"No.19（東京スポーツ文化館）の敷地内",opinion:"屋外でよければ",
+  links:[["予約","https://yoyaku.labola.jp/r/shop/3099/"]]}
+];
+
+const RANK = {best:["◎","best",0],good:["○","good",1],cond:["△","cond",2]};
+const badge = (a)=> a ? `<span class="b ${a[1]}" ${a[2]?`title="${a[2]}"`:""}>${a[0]}</span>${a[2]?`<span class="unit">${a[2]}</span>`:""}` : "";
+const types = ["すべて","民間","民間運営","公共","屋外"];
+let filter = "すべて", sortKey = "no", asc = true;
+
+function renderChips(){
+  document.getElementById("chips").innerHTML = types.map(t=>`<button class="chip ${t===filter?"on":""}" data-t="${t}">${t}</button>`).join("")
+    + `<button class="chip" id="onlyTop">◎○だけ表示</button>`;
+  document.querySelectorAll(".chip[data-t]").forEach(b=>b.onclick=()=>{filter=b.dataset.t;onlyTop=false;renderChips();render();});
+  const ot=document.getElementById("onlyTop"); ot.classList.toggle("on",onlyTop);
+  ot.onclick=()=>{onlyTop=!onlyTop;renderChips();render();};
+}
+let onlyTop=false;
+function rows(){
+  let r = V.filter(v=>filter==="すべて"||v.type===filter).filter(v=>!onlyTop||v.rank!=="cond");
+  r.sort((a,b)=>{
+    let x,y;
+    if(sortKey==="rank"){x=RANK[a.rank][2];y=RANK[b.rank][2];}
+    else if(sortKey==="type"){x=a.type;y=b.type;}
+    else {x=a.no;y=b.no;}
+    if(x===y){x=a.no;y=b.no;}
+    return (x>y?1:-1)*(asc?1:-1);
+  });
+  return r;
+}
+function render(){
+  const r = rows();
+  document.querySelector("#summary tbody").innerHTML = r.map(v=>{
+    const k=RANK[v.rank];
+    return `<tr>
+      <td class="no">${v.no}</td>
+      <td class="mark ${k[1]}">${k[0]}</td>
+      <td class="name">${v.name}<small>${v.area}</small></td>
+      <td class="type">${v.type}</td>
+      <td>${v.station}</td>
+      <td>${v.size}</td>
+      <td><span class="price">${v.price}</span><span class="unit">${v.unit}</span></td>
+      <td>${badge(v.food)}</td>
+      <td>${badge(v.drink)}</td>
+      <td>${badge(v.molkky)}</td>
+      <td>${v.one}</td></tr>`;}).join("");
+  document.querySelector("#detail tbody").innerHTML = r.map(v=>{
+    const k=RANK[v.rank];
+    return `<tr>
+      <td class="no">${v.no}</td>
+      <td class="name">${v.name}<small>${v.area}・${v.type}</small></td>
+      <td class="detail">${v.sizeD}</td>
+      <td class="detail">${v.priceD}</td>
+      <td>${v.hours}</td>
+      <td>${v.station}</td>
+      <td class="detail">${v.reserve}</td>
+      <td class="detail">${v.note||"—"}</td>
+      <td class="detail"><span class="b ${k[1]}">${k[0]}</span> ${v.opinion}</td>
+      <td class="links">${v.links.map(l=>`<a href="${l[1]}" target="_blank" rel="noopener">${l[0]} ↗</a>`).join("")}</td></tr>`;}).join("");
+}
+document.querySelectorAll("#summary th.sort").forEach(th=>th.onclick=()=>{
+  const k=th.dataset.k; if(sortKey===k) asc=!asc; else {sortKey=k;asc=true;} render();
+});
+renderChips(); render();
+</script>
+</body>
+</html>
