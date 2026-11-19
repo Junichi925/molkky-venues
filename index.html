@@ -52,6 +52,8 @@ td.name small{display:block;font-weight:400;color:var(--muted)}
 .mark{font-size:18px;font-weight:700;text-align:center}
 .mark.best{color:var(--best)} .mark.good{color:var(--good)} .mark.cond{color:var(--cond)}
 td.detail{min-width:220px}
+.eq{display:flex;flex-wrap:wrap;gap:3px;min-width:200px}
+.eq .b{font-size:11.5px;padding:0 6px}
 td.links a{display:block;color:var(--accent);text-decoration:none;white-space:nowrap}
 td.links a:hover{text-decoration:underline}
 .type{font-size:12px;color:var(--muted);white-space:nowrap}
@@ -77,6 +79,7 @@ footer{color:var(--muted);font-size:12.5px;margin-top:28px}
     <span><span class="b good">○</span> 十分あり</span>
     <span><span class="b cond">△</span> 条件付き</span>
     <span><span class="b na">要確認</span> 公開情報では不明</span>
+    <span>備品：<span class="b best">あり</span> <span class="b good">有料</span> <span class="b ng">掲載なし</span>（公開情報に載っていない。無いとは限らない） <span class="b na">要問合せ</span>（一覧が非公開）。調査は評価◎○の会場のみ</span>
   </div>
 
   <h2>全体サマリ</h2>
@@ -92,6 +95,7 @@ footer{color:var(--muted);font-size:12.5px;margin-top:28px}
     <th>飲食</th>
     <th>飲酒</th>
     <th>木製モルック</th>
+    <th>備品（机・椅子・ホワイトボード・得点板・マイク）</th>
     <th>ひとこと</th>
   </tr></thead><tbody></tbody></table></div>
 
@@ -104,6 +108,7 @@ footer{color:var(--muted);font-size:12.5px;margin-top:28px}
     <th>営業・利用時間</th>
     <th>最寄り</th>
     <th>予約・登録</th>
+    <th>備品</th>
     <th>備考</th>
     <th>評価・意見</th>
     <th>リンク</th>
@@ -211,11 +216,11 @@ const V = [
   opinion:"公共の中では広さ・料金のバランスが良い",
   links:[["団体利用","https://www.chuo-sports.jp/guide/"]]},
  {no:9,name:"目黒区民センター体育館",area:"目黒区",type:"公共",rank:"good",
-  station:"目黒 徒歩10分",size:"体育室 735㎡",
+  station:"目黒 徒歩10分",size:"体育室 783㎡（35×21m）",
   price:"16,500円",unit:"夜間枠（3時間）あたり・区外料金",
   food:["要確認","na"],drink:["不可が一般的","ng"],molkky:["マット必須","cond"],
   one:"区外料金が公開されていてわかりやすい",
-  sizeD:"体育室 735㎡",
+  sizeD:"体育室 783㎡（35m×21m、区公式）",
   priceD:"夜間枠（3時間）：区外 16,500円／区民 8,200円（2025/4改定）",
   hours:"夜間枠あり",
   reserve:"事前の団体登録が必要",
@@ -322,15 +327,15 @@ const V = [
   links:[["スポーツゾーン","https://www.ys-tokyobay.co.jp/sports/"],["レストラン","https://www.ys-tokyobay.co.jp/restaurant/"]]},
  {no:20,name:"BUDDYスポーツアリーナ",area:"江東区",type:"民間",rank:"good",
   station:"有明テニスの森 徒歩12分",size:"要確認",
-  price:"¥24,200〜",unit:"1時間あたり（平日10:00〜18:00・ビジターの例）",
-  food:["館内レストラン","good","BBQ施設あり"],drink:["要確認","na"],molkky:["要確認","na"],
-  one:"23時まで使えて、飲食施設が揃っている",
-  sizeD:"屋内多目的スポーツ施設（アリーナコートの広さは要確認）",
-  priceD:"アリーナコート ¥24,200／1時間（平日10:00〜18:00・ビジターの例）。夜間料金は要確認",
-  hours:"9:00〜23:00",
-  reserve:"電話 03-6426-0327 またはメール",
-  note:"レストラン・BBQ施設あり。有料駐車場27台",opinion:"問い合わせる価値あり",
-  links:[["公式","https://ariake-sportsarena.com/"]]},
+  price:"¥29,700",unit:"1時間あたり（平日18:00〜23:00・ビジター）。4時間以上は ¥66,000／1時間",
+  food:["館内レストラン","good","BBQ施設あり・会議室で飲食可"],drink:["要確認","na"],molkky:["要確認","na"],
+  one:"23時まで使えて、飲食施設が揃っている。4時間以上は割高",
+  sizeD:"屋内多目的スポーツ施設。アリーナコートは1階（広さは要確認）",
+  priceD:"アリーナコート：平日18:00〜23:00 ビジター ¥29,700／1時間（有料会員 ¥27,500）、平日10:00〜18:00 ビジター ¥24,200／1時間。1日4時間以上は大枠扱いで ¥66,000／1時間（電話予約のみ・キャンセル不可）",
+  hours:"平日10:00〜23:00、土日祝9:00〜23:00",
+  reserve:"LaBOLA予約。ビジターは30日前から。4時間以上は電話（03-6426-0327）",
+  note:"レストラン・BBQ施設あり。有料駐車場27台。企業運動会・大型イベントの相談窓口あり",opinion:"問い合わせる価値あり。3時間以内に収めたい",
+  links:[["公式","https://ariake-sportsarena.com/"],["予約","https://yoyaku.labola.jp/r/shop/2127/"],["企業利用","https://ariake-sportsarena.com/rental"]]},
  {no:21,name:"IKUSA ARENA",area:"練馬区",type:"民間",rank:"cond",
   station:"東武練馬 徒歩10分",size:"約700㎡（メインフロア）〜約1,000㎡",
   price:"¥65,000",unit:"1時間あたり（平日・通常シーズン）",
@@ -344,12 +349,12 @@ const V = [
  {no:22,name:"スポーツゼロ",area:"杉並区",type:"民間",rank:"good",
   station:"新高円寺 徒歩2分",size:"屋内人工芝 約171㎡",
   price:"¥5,000",unit:"1時間あたり（金曜18:00〜22:00）",
-  food:["要確認","na"],drink:["要確認","na"],molkky:["人工芝","good"],
+  food:["イベント時は可","good","持込可"],drink:["イベント時は可","good","飲酒が主目的のイベントは不可"],molkky:["人工芝・セット無料","best","モルックセットを無料で貸出"],
   one:"安く、マットも不要。2〜3コートが限界",
   sizeD:"多目的フィールド 約171㎡（屋内人工芝）",
   priceD:"¥5,000／1時間（金曜18:00〜22:00、土日祝8:00〜22:00）",
   hours:"〜22:00",reserve:"公式から予約",
-  note:"マイク3本・プロジェクター・120インチスクリーンを無料で貸出",opinion:"狭さを許容できれば",
+  note:"イベント利用時は飲食物（お酒）の持込可。ただし大量の飲酒を伴うもの、飲酒・飲食が主目的のイベントは不可",opinion:"狭さを許容できれば",
   links:[["公式","https://www.senon-sports-zero.jp/facility/index"]]},
  {no:23,name:"ROX・3G スーパーマルチコート",area:"台東区",type:"民間",rank:"good",
   station:"浅草（TX） 徒歩1分",size:"屋根付き人工芝 544㎡（32×17m）",
@@ -383,6 +388,22 @@ const V = [
   note:"No.19（東京スポーツ文化館）の敷地内",opinion:"屋外でよければ",
   links:[["予約","https://yoyaku.labola.jp/r/shop/3099/"]]}
 ];
+
+// 備品（調査対象は◎○のみ）。y=あり p=有料 n=掲載なし q=要問合せ
+const EQ = {
+ 1:{s:{机:"p",椅子:"p",WB:"p",得点板:"n",マイク:"p"},d:"有料オプション（在庫数）：長机 計75台（150cm×41、180cm×34）、パイプ椅子 260脚、ホワイトボード 1台、マイク＋スピーカー 1式、プロジェクター 1台、60インチディスプレイ 1台。料金例（スペースマーケット掲載）：パイプ椅子 ¥330／脚、長机 ¥418／台、ホワイトボード ¥550／回、マイク＋スピーカー ¥5,500／回、プロジェクター ¥5,500／回。得点板・タイマーの掲載なし"},
+ 3:{s:{机:"q",椅子:"q",WB:"q",得点板:"q",マイク:"q"},d:"備品の一覧は公開されていない。電話（03-3256-8444）で要確認"},
+ 4:{s:{机:"q",椅子:"q",WB:"q",得点板:"q",マイク:"q"},d:"サブアリーナ：音響設備は全面貸切のときのみ使用可。ゴール・ネットあり。倉庫内の器具は使えず、用具は持参。机・椅子・ホワイトボード・得点板は公開情報なし（03-3452-4151 で要確認）"},
+ 6:{s:{机:"n",椅子:"n",WB:"n",得点板:"n",マイク:"n"},d:"体育館の有料レンタル：オフィシャルタイマー ¥2,200／台（2台）、ビブス・ボール等。得点板は屋上運動場用のみ（¥2,200／台）。机・椅子・ホワイトボード・マイクの掲載なし"},
+ 8:{s:{机:"q",椅子:"q",WB:"q",得点板:"q",マイク:"q"},d:"備品の一覧は公開されていない。電話（03-3666-1501）で要確認"},
+ 9:{s:{机:"q",椅子:"q",WB:"q",得点板:"q",マイク:"q"},d:"備品の一覧は公開されていない。電話（03-3711-1139）で要確認"},
+ 19:{s:{机:"y",椅子:"y",WB:"y",得点板:"y",マイク:"y"},d:"貸切備品表（2026/4/1時点）にあり：椅子・長机・ホワイトボード・得点板・デジタイマー・ストップウォッチ・表彰台・演台・マイク付ポータブルデッキ（サブアリーナ用）・養生シート・ゴム製シート・カラーコーン等。利用3日前までに備品表をFAX／メールで申請。※マルチスタジオA・Cはスポーツミラーあり"},
+ 20:{s:{机:"y",椅子:"y",WB:"n",得点板:"y",マイク:"n"},d:"無料：得点板・電子ホイッスル・ボール・ビブス。ミーティングルーム（6.5×7m、長机・椅子付き、¥15,400／1時間、飲食可）を併用できる。ホワイトボード・マイクの掲載なし"},
+ 22:{s:{机:"y",椅子:"y",WB:"n",得点板:"n",マイク:"y"},d:"無料：机 40台、椅子 80脚、マイク 3本、プロジェクター 1台、120インチスクリーン 1台、49型モニター 3台、モルックセット・ボッチャ等。ホワイトボード・得点板の掲載なし"},
+ 23:{s:{机:"n",椅子:"n",WB:"n",得点板:"n",マイク:"n"},d:"無料：タイマー 1台、フットサルボール 2個、ビブス 5枚。机・椅子・ホワイトボード・得点板・マイクの掲載なし"}
+};
+const EQL = {y:["あり","best"],p:["有料","good"],n:["掲載なし","ng"],q:["要問合せ","na"]};
+const eqSum = no => EQ[no] ? `<div class="eq">${Object.entries(EQ[no].s).map(([k,v])=>`<span class="b ${EQL[v][1]}">${k}:${EQL[v][0]}</span>`).join("")}</div>` : `<span class="unit">調査対象外</span>`;
 
 const RANK = {best:["◎","best",0],good:["○","good",1],cond:["△","cond",2]};
 const badge = (a)=> a ? `<span class="b ${a[1]}" ${a[2]?`title="${a[2]}"`:""}>${a[0]}</span>${a[2]?`<span class="unit">${a[2]}</span>`:""}` : "";
@@ -424,6 +445,7 @@ function render(){
       <td>${badge(v.food)}</td>
       <td>${badge(v.drink)}</td>
       <td>${badge(v.molkky)}</td>
+      <td>${eqSum(v.no)}</td>
       <td>${v.one}</td></tr>`;}).join("");
   document.querySelector("#detail tbody").innerHTML = r.map(v=>{
     const k=RANK[v.rank];
@@ -435,6 +457,7 @@ function render(){
       <td>${v.hours}</td>
       <td>${v.station}</td>
       <td class="detail">${v.reserve}</td>
+      <td class="detail">${EQ[v.no]?EQ[v.no].d:'<span class="unit">調査対象外（評価△）</span>'}</td>
       <td class="detail">${v.note||"—"}</td>
       <td class="detail"><span class="b ${k[1]}">${k[0]}</span> ${v.opinion}</td>
       <td class="links">${v.links.map(l=>`<a href="${l[1]}" target="_blank" rel="noopener">${l[0]} ↗</a>`).join("")}</td></tr>`;}).join("");
