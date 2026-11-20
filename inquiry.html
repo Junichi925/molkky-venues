@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>会場への問い合わせ文</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--text:#1d2330;--muted:#5d6676;--line:#e2e6ec;--accent:#2f6fde;--code:#f3f5f8}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#14171c;--card:#1c2028;--text:#e7eaf0;--muted:#9aa3b2;--line:#2e3440;--accent:#6c9cff;--code:#232834}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Hiragino Sans","Noto Sans JP","Yu Gothic UI",sans-serif;font-size:15px;line-height:1.7}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 64px}
+h1{font-size:22px;margin:0 0 4px}
+.sub{color:var(--muted);margin:0 0 16px;font-size:13.5px}
+a{color:var(--accent)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin:14px 0}
+.label{font-size:12.5px;color:var(--muted);margin-bottom:4px}
+.subject{font-weight:700}
+pre{white-space:pre-wrap;word-break:break-word;font-family:inherit;margin:0;background:var(--code);border-radius:8px;padding:14px 16px}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px}
+button{border:1px solid var(--accent);background:var(--accent);color:#fff;border-radius:8px;padding:6px 14px;font-size:13px;cursor:pointer}
+button.done{background:transparent;color:var(--accent)}
+ul{margin:6px 0 0;padding-left:20px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="sub"><a href="./">← モルック会場候補一覧に戻る</a></p>
+  <h1>会場への問い合わせ文</h1>
+  <p class="sub">宛先：学校跡地の飯田橋でっかいレンタルスペース（運営：株式会社アラモード）<br>送付先：<a href="https://mrdekkai.com/contactask/" target="_blank" rel="noopener">問い合わせフォーム</a> または予約サイトのメッセージ機能</p>
+
+  <div class="card">
+    <div class="bar"><div class="label">件名</div><button data-t="subject">コピー</button></div>
+    <pre id="subject" class="subject">12/11（金）夜 体育館利用の事前確認（モルック大会・最大40名）</pre>
+  </div>
+
+  <div class="card">
+    <div class="bar"><div class="label">本文</div><button data-t="body">コピー</button></div>
+<pre id="body">ご担当者様
+
+株式会社〇〇の〇〇と申します。
+体育館（講堂）でのモルック大会の開催について、予約前に確認させてください。
+
+■ 利用予定
+・日時：12月11日（金）18:00〜22:00（仮）
+・人数：30名程度（最大40名）
+・内容：モルック大会（木製の用具を持ち込みます）
+
+■ ご質問
+1. 利用時間の変更
+　進行が決まり次第（開催の1〜2週間前）、予約時間を変更したいと考えています。
+　当日の延長・短縮はしません。
+　・事前の延長は可能でしょうか。
+　・短縮した分は、キャンセル料の対象になりますか。
+
+2. 備品の追加
+　机・椅子などのオプションは、予約後に追加できますか。
+　締め切りがあれば教えてください。
+
+3. 履物
+　土足で利用できますか。室内シューズが必要でしょうか。
+
+4. 飲食・飲酒
+　大会後に軽食の時間を設ける予定です。
+　予約サイトによって記載が異なっていたため、飲酒が可能か教えてください。
+　ケータリングや持ち込みの注意点があれば、あわせてお願いします。
+
+5. 床の養生
+　木製モルックを使う場合、どのような養生をすればよいでしょうか。
+　貸し出し可能なマット類があれば教えてください。
+
+6. その他
+　今回の内容で、ほかに注意すべき点があれば教えてください。
+
+お手数をおかけしますが、よろしくお願いいたします。
+
+株式会社〇〇　〇〇 〇〇
+電話：〇〇〇-〇〇〇〇-〇〇〇〇
+メール：〇〇〇〇＠〇〇〇〇</pre>
+  </div>
+
+  <div class="card">
+    <div class="label">送る前に</div>
+    <ul>
+      <li>〇〇（社名・氏名・連絡先）を埋める</li>
+      <li>利用時間（仮で 18:00〜22:00）を、予約したい時間に合わせる</li>
+    </ul>
+  </div>
+</div>
+<script>
+document.querySelectorAll("button[data-t]").forEach(b=>b.onclick=async()=>{
+  const text=document.getElementById(b.dataset.t).innerText;
+  try{await navigator.clipboard.writeText(text);}catch(e){
+    const r=document.createRange();r.selectNodeContents(document.getElementById(b.dataset.t));
+    const s=getSelection();s.removeAllRanges();s.addRange(r);document.execCommand("copy");s.removeAllRanges();
+  }
+  b.textContent="コピーしました";b.classList.add("done");
+  setTimeout(()=>{b.textContent="コピー";b.classList.remove("done");},1800);
+});
+</script>
+</body>
+</html>
